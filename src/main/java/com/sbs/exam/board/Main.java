@@ -29,7 +29,14 @@ public class Main {
         // 전이증감 연산?
         //  선 증가시킨 값을 변수에다가 집어 넣은 다음에 그 값을 사용
         int id = ++articleLastId;
-        System.out.printf("%d번 게시물이 등록되었습니다.\n", id);
+
+        Article article = new Article();
+        article.id = id;
+        article.title = title;
+        article.content = content;
+
+        System.out.println("생성된 게시물 객체 : " + article);
+        System.out.printf("%d번 게시물이 등록되었습니다.\n", article.id);
 
       }
       else if(cmd.equals("exit") ){
@@ -50,9 +57,12 @@ public class Main {
 
     sc.close();
 
-
-
-    //System.out.println("프로그램 끝");
-    //System.out.println("== 게시판을 종료합니다 ==");
   }
+}
+
+class Article {
+  int id;
+  String title;
+  String content;
+
 }
