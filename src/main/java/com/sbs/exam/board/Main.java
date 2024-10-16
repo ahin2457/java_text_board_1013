@@ -12,15 +12,31 @@ public class Main {
       System.out.printf("명령) ");
       String cmd = sc.nextLine();
 
-      if(cmd.equals("exit") ){
+      if(cmd.equals("/urs/article/write") ){
+        System.out.print("제목 : ");
+        String title =  sc.nextLine();
+
+        System.out.print("내용 : ");
+        String content = sc.nextLine();
+
+        int id = 1;
+
+        System.out.printf("%d번 게시물이 등록되었습니다.\n", id);
+
+        // break; // 반복문 빠져나오기
+      }
+      else if(cmd.equals("exit") ){
+        System.out.println("== 자바 텍스트 게시판 종료 ==");
         break; // 반복문 빠져나오기
+      }
+      else{
+        System.out.println("올바른 명령어가 아닙니다.");
       }
 
       System.out.printf("입력받은 명령어: %s\n",cmd);
 
     }
 
-    System.out.println("== 자바 텍스트 게시판 종료 ==");
 
     sc.close();
 
