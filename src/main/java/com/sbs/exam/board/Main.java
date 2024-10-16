@@ -5,8 +5,9 @@ import java.util.Scanner;
 public class Main {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
+    int articleLastId = 0;
+
     System.out.println("== 텍스트 게시판 v 0.1 ==");
-    System.out.println("프로그램 시작");
 
     while (true){
       System.out.printf("명령) ");
@@ -19,15 +20,24 @@ public class Main {
         System.out.print("내용 : ");
         String content = sc.nextLine();
 
-        int id = 1;
+        /*
+        int id = articleLastId + 1;
+        articleLastId = id; // articleLastId는 초기값 0이기 떄문에 id 값으로 갱신시켜줌
+         */
+        // 위 코드를 한줄로 줄이기
 
+        // 전이증감 연산?
+        //  선 증가시킨 값을 변수에다가 집어 넣은 다음에 그 값을 사용
+        int id = ++articleLastId;
         System.out.printf("%d번 게시물이 등록되었습니다.\n", id);
 
-        // break; // 반복문 빠져나오기
       }
       else if(cmd.equals("exit") ){
         System.out.println("== 자바 텍스트 게시판 종료 ==");
         break; // 반복문 빠져나오기
+      }
+      else if(cmd.equals("")){
+        System.out.println("명령어를 입력해주세요.");
       }
       else{
         System.out.println("올바른 명령어가 아닙니다.");
